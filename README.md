@@ -6,9 +6,6 @@
 ![Flask](https://img.shields.io/badge/Flask-3.0-000000?style=flat-square&logo=flask)
 ![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=flat-square&logo=sqlite)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript)
-![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-
 
 [Visão Geral](#visão-geral-do-projeto) • [Objetivos](#objetivo-do-projeto) • [Estrutura](#estrutura-de-pastas-do-projeto) • [Tecnologias](#ferramentas-utilizadas) • [Benefícios](#benefícios-do-projeto)
 

@@ -1,0 +1,25 @@
+#Framework
+flask
+flask-cors
+flask-sqlalchemy
+flask-migrate
+
+#Database
+SQLAlchemy
+Alembic
+
+#APIs
+requests
+python-dotenv
+
+#Testes
+pytest
+pytest-flask
+
+#Qualidade de Código
+flake8
+black
+mypy
+
+# Logging
+python-json-logger
