@@ -1,42 +1,33 @@
 from datetime import datetime
 from backend.database.db import db
 
-class Personagem(db.Model):
-    __tablename__ = "tb_personagens"
+class Planeta (db.Model):
+    __tablename__ = 'tb_localizaoes_rickmorty'
 
-    __table_args__ = (
-        db.UniqueConstraint(
-            'external_id',
-            'nome_api',
-            name='uk_personagem_api'
-        ),
+    id = db.Column(
+        db.Integer, 
+        primary_key=True
     )
-
-    id = db.Column(db.Integer, primary_key=True)
 
     external_id = db.Column(
         db.Integer, 
         nullable=False
     )
 
-    nome_personagem = db.Column(
-        db.String(255), 
-        nullable=False
+    nome_localizacao = db.Column(
+        db.String(255),
+        nullable = False
     )
 
-    status = db.Column(
+    tipo_localizacao = db.Column(
         db.String(255)
     )
 
-    tipo_especie = db.Column(
-        db.String(100)
+    dimensao = db.Column(
+        db.String(255)
     )
-
-    genero = db.Column(
-        db.String(50)
-    )
-
-    url_imagem_personagem = db.Column(
+    
+    residentes_localizacao = db.Column(
         db.String(500)
     )
 
@@ -55,3 +46,6 @@ class Personagem(db.Model):
         default=datetime.utcnow,
         onupdate=datetime.utcnow
     )
+
+
+

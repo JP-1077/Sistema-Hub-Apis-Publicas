@@ -1,6 +1,8 @@
-from backend.app import criacao_banco_dados
+from backend.app import create_app
 
-app = criacao_banco_dados()
+
+app = create_app()
+
 
 if __name__ == "__main__":
     app.run(debug=True)

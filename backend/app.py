@@ -1,16 +1,23 @@
 from flask import Flask
+from flask_migrate import Migrate
 from backend.config import Config
 from backend.database.db import db
-
+from backend.routes.rota_rickmorty import rickmorty_bp
 from backend.models import *
 
-def criacao_banco_dados():
+def create_app():
 
-    banco = Flask(__name__)
-    banco.config.from_object(Config)
-    db.init_app(banco)
+    app = Flask(__name__)
 
-    with banco.app_context():
+    app.config.from_object(Config)
+    db.init_app(app)
+    Migrate(app, db)
+
+    with app.app_context():
         db.create_all()
-        
-    return banco
+    
+    app.register_blueprint(
+        rickmorty_bp
+    )
+
+    return app

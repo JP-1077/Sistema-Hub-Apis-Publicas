@@ -1,4 +1,4 @@
-from .personagem import Personagem
-from .filmes import Filme
-from .planetas import Planeta
+from .personagem_rickmorty import Personagem
+from .episodios_rickmorty import Filme
+from .localizaoes_rickmorty import Planeta
 from .logs_api import logs
