@@ -1,3 +1,6 @@
 # Anmbiente Virtual
 venv/
 
+# Variáveis de ambiente
+.env
+
