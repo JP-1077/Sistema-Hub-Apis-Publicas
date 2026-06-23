@@ -1,5 +1,5 @@
-from backend.services.api_consumer_rickmorty import consumer_api_rick_and_morty
-from backend.services.sync_database_rickmorty import SyncDatabase
+from backend.domains.personagem.consumer import consumer_api_rick_and_morty
+from backend.domains.personagem.sync import SyncDatabase
 from backend.app import criacao_banco_dados
 
 
