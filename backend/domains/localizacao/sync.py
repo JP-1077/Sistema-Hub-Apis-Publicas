@@ -3,13 +3,13 @@ from backend.domains.localizacao.processor import ProcessamentoDadosLocalizacaoA
 from backend.domains.localizacao.consumer import ConsumerLocalizacaoAPIRickMorty
 
 
-class SyncDatabase:
+class SyncDatabaseLocalizacao:
     def __init__(self):
-        self.api_consumer = ConsumerLocalizacaoAPIRickMorty
-        self.processamento_dados_localizacao = ProcessamentoDadosLocalizacaoAPIRickMorty
+        self.api_consumer = ConsumerLocalizacaoAPIRickMorty()
+        self.processamento_dados_localizacao = ProcessamentoDadosLocalizacaoAPIRickMorty()
 
 
-    def salvar_localizacoes_datababase(self):
+    def salvar_localizacoes_database(self):
 
         try:
             dados_localizoes = self.api_consumer.get_localizacoes()

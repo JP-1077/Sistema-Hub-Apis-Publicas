@@ -5,6 +5,13 @@ from backend.database.db import db
 from backend.routes.rota_rickmorty import rickmorty_bp
 from backend.models import *
 
+
+try:
+    from backend.routes.rota_rickmorty import rickmorty_bp
+except ModuleNotFoundError:
+    rickmorty_bp = None
+
+
 def create_app():
 
     app = Flask(__name__)
@@ -16,8 +23,7 @@ def create_app():
     with app.app_context():
         db.create_all()
     
-    app.register_blueprint(
-        rickmorty_bp
-    )
+    if rickmorty_bp is not None:
+        app.register_blueprint(rickmorty_bp)
 
     return app

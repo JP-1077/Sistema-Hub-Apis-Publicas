@@ -4,7 +4,7 @@ from backend.services.api_consumer_rickmorty import consumer_api_rick_and_morty
 
 
 
-class SyncDatabase:
+class SyncDatabasePersonagem:
     def __init__(self):
         self.api_consumer = consumer_api_rick_and_morty()
         self.processamento_dados = ProcessamentoDadosPersonsagemAPIRickMorty()

@@ -3,17 +3,15 @@ from backend.domains.episodios.processor import ProcessamentoDadosEpisodiosAPIRi
 from backend.domains.episodios.consumer import ConsumerEpisodiosAPIRickMorty
 
 
-class SyncDatabase:
+class SyncDatabaseEpisodios:
     def __init__(self):
-        self.api_consumer = ConsumerEpisodiosAPIRickMorty
-        self.processamento_dados_episodios = ProcessamentoDadosEpisodiosAPIRickMorty
+        self.api_consumer = ConsumerEpisodiosAPIRickMorty()
+        self.processamento_dados_episodios = ProcessamentoDadosEpisodiosAPIRickMorty()
 
-
-    def salvar_episodios_datababase(self):
-
+    def salvar_episodios_database(self):
         try:
             dados_episodios = self.api_consumer.get_epsiodios()
-            episodios_processados = self.processamento_dados_episodios.processamento_dados_episodioss(dados_episodios)
+            episodios_processados = self.processamento_dados_episodios.processamento_dados_episodios(dados_episodios)
 
             for episodio in episodios_processados:
                 episodio_existente = db.session.get(
@@ -27,7 +25,7 @@ class SyncDatabase:
             db.session.commit()
 
             return len(episodios_processados)
-        
+
         except Exception as e:
             db.session.rollback()
             raise e
