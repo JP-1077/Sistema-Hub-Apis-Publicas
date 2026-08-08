@@ -1,14 +1,24 @@
-from backend.app import create_app
+import pytest
 
-def test_endpoint_personagem_rickmorty():
-    app = create_app()
+def test_personagens(client):
+    response = client.get("/api/rickmorty/personagem/")
+    assert response.status_code == 200
+    assert isinstance(response.get_json(), list)
 
-    client = app.test_client()
+def test_localizacoes(client):
+    response = client.get("/api/rickmorty/localizacao/")
+    assert response.status_code == 200
+    assert isinstance(response.get_json(), list)
 
-    response = client.get(
-        "/api/rickmorty/Personagem"
-    )
+@pytest.mark.parametrize(
+    "url",
+    [
+        "/api/rickmorty/personagens/",
+        "/api/rickmorty/localizacao/",
+        "/api/rickmorty/episodios/",
+    ],
+)
 
-    print(response.get_json())
-
-test_endpoint_personagem_rickmorty()
+def test_endpoints_rickmort(client, url):
+    response = client.get(url)
+    assert response.status_code == 200

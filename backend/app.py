@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_migrate import Migrate
 
 from backend.config import Config
 from backend.database.db import db
@@ -15,6 +16,7 @@ try:
 except ModuleNotFoundError:
     rickmorty_bp = None
 
+migrate = Migrate()
 
 def create_app():
 
@@ -23,6 +25,7 @@ def create_app():
     app.config.from_object(Config)
 
     db.init_app(app)
+    migrate.init_app(app, db)
 
     app.register_blueprint(localizacao_bp)
     app.register_blueprint(personagens_bp)
