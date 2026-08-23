@@ -56,12 +56,12 @@ class Personagemdisney (db.Model):
 
     url_imagem_personagem = db.Column(
         db.String(500),
-        nullable=False
+        nullable=True
     )
 
     url_api_personagem = db.Column(
         db.String(500), 
-        nullable=False
+        nullable=True
     )
 
     nome_api = db.Column(

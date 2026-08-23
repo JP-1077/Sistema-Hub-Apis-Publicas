@@ -5,7 +5,14 @@ class ProcessorPersonagensApiDisney:
     def processamento_dados_personagens(self, dados):
 
         personagens_processados = []
-        resultados = dados.get("results", []) 
+
+        if not dados:
+            return []
+
+        if isinstance(dados, dict):
+            resultados = dados.get("data", dados.get("results", []))
+        else:
+            resultados = dados
 
         for item in resultados:
             data_criacao_str = item.get("created")

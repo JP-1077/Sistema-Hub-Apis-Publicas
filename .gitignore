@@ -4,3 +4,6 @@ venv/
 # Variáveis de ambiente
 .env
 
+# Cache
+**/__pycache__/
+__pycache__/

@@ -56,7 +56,7 @@ class EspeciesApiStarWars(db.Model):
 
     id_planeta_origem = db.Column(
         db.String(500),
-        nullable=False
+        nullable=True
     )
 
     nome_api = db.Column(
