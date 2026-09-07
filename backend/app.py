@@ -4,12 +4,19 @@ from flask_migrate import Migrate
 from backend.config import Config
 from backend.database.db import db
 
-from backend.routes.rota_rickmorty import rickmorty_bp
 from backend.models import *
 
 from backend.routes.rota_rickmorty_localizacao import localizacao_bp
 from backend.routes.rota_rickmorty_personagem import personagens_bp
 from backend.routes.rota_rickmorty_episodios import episodios_bp
+
+from backend.routes.rota_star_wars_personagens import personagens_bp
+from backend.routes.rota_starwars_filmes import filmes_bp
+from backend.routes.rota_starwars_planetas import planetas_bp
+from backend.routes.rota_starwars_veiculos import veiculos_bp
+from backend.routes.rota_starwars_especies import especies_bp
+from backend.routes.rota_starwars_espaco_naves import espaco_naves_bp
+
 
 try:
     from backend.routes.rota_rickmorty import rickmorty_bp
@@ -30,5 +37,10 @@ def create_app():
     app.register_blueprint(localizacao_bp)
     app.register_blueprint(personagens_bp)
     app.register_blueprint(episodios_bp)
+    app.register_blueprint(filmes_bp)
+    app.register_blueprint(planetas_bp)
+    app.register_blueprint(veiculos_bp)
+    app.register_blueprint(especies_bp)
+    app.register_blueprint(espaco_naves_bp)
 
     return app
